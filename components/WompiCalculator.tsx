@@ -206,32 +206,10 @@ export default function WompiCalculator() {
             />
             {desired && (
               <button
+                className="clear-btn"
                 onClick={() => {
                   setDesired("");
                   inputRef.current?.focus();
-                }}
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  borderRadius: "50%",
-                  width: 32,
-                  height: 32,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: "pointer",
-                  color: "#6b6b8a",
-                  fontSize: 16,
-                  flexShrink: 0,
-                  transition: "background 0.2s ease, color 0.2s ease",
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = "#1f1f3a";
-                  e.currentTarget.style.color = "#e8e8ed";
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "#6b6b8a";
                 }}
                 aria-label="Limpiar"
               >
@@ -445,6 +423,27 @@ export default function WompiCalculator() {
           to { opacity: 1; transform: translateY(0); }
         }
         input::placeholder { color: #3a3a5a; }
+        .clear-btn {
+          background: transparent;
+          border: none;
+          border-radius: 50%;
+          width: 32px;
+          height: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: #6b6b8a;
+          font-size: 16px;
+          flex-shrink: 0;
+          transition: background 0.2s ease, color 0.2s ease;
+        }
+        @media (hover: hover) {
+          .clear-btn:hover {
+            background: #1f1f3a;
+            color: #e8e8ed;
+          }
+        }
       `}</style>
     </div>
   );
