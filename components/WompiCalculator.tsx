@@ -204,6 +204,40 @@ export default function WompiCalculator() {
                 minWidth: 0,
               }}
             />
+            {desired && (
+              <button
+                onClick={() => {
+                  setDesired("");
+                  inputRef.current?.focus();
+                }}
+                style={{
+                  background: "#1f1f3a",
+                  border: "none",
+                  borderRadius: "50%",
+                  width: 32,
+                  height: 32,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  color: "#6b6b8a",
+                  fontSize: 16,
+                  flexShrink: 0,
+                  transition: "background 0.2s ease, color 0.2s ease",
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = "#2a2a4a";
+                  e.currentTarget.style.color = "#e8e8ed";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "#1f1f3a";
+                  e.currentTarget.style.color = "#6b6b8a";
+                }}
+                aria-label="Limpiar"
+              >
+                ✕
+              </button>
+            )}
           </div>
           <div style={{
             height: 2,
