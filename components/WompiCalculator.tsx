@@ -211,7 +211,7 @@ export default function WompiCalculator() {
                   inputRef.current?.focus();
                 }}
                 style={{
-                  background: "#1f1f3a",
+                  background: "transparent",
                   border: "none",
                   borderRadius: "50%",
                   width: 32,
@@ -226,11 +226,11 @@ export default function WompiCalculator() {
                   transition: "background 0.2s ease, color 0.2s ease",
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.background = "#2a2a4a";
+                  e.currentTarget.style.background = "#1f1f3a";
                   e.currentTarget.style.color = "#e8e8ed";
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.background = "#1f1f3a";
+                  e.currentTarget.style.background = "transparent";
                   e.currentTarget.style.color = "#6b6b8a";
                 }}
                 aria-label="Limpiar"
@@ -337,12 +337,14 @@ export default function WompiCalculator() {
                   padding: "12px 0",
                   borderBottom: i < 3 ? "1px solid #1a1a30" : "none",
                 }}>
-                  <span style={{ fontSize: 13, color: "#9999b3" }}>{row.label}</span>
+                  <span style={{ fontSize: 13, color: "#9999b3", flex: 1, minWidth: 0 }}>{row.label}</span>
                   <span style={{
                     fontSize: 13,
                     fontFamily: "var(--font-space-mono), monospace",
                     color: row.color,
                     fontWeight: 500,
+                    whiteSpace: "nowrap",
+                    marginLeft: 12,
                   }}>{row.value}</span>
                 </div>
               ))}
@@ -356,12 +358,14 @@ export default function WompiCalculator() {
                 borderTop: "1px solid #2a2a4a",
                 marginTop: 4,
               }}>
-                <span style={{ fontSize: 13, color: "#9999b3", fontWeight: 600 }}>Total descuentos</span>
+                <span style={{ fontSize: 13, color: "#9999b3", fontWeight: 600, flex: 1, minWidth: 0 }}>Total descuentos</span>
                 <span style={{
                   fontSize: 14,
                   fontFamily: "var(--font-space-mono), monospace",
                   color: "#f87171",
                   fontWeight: 700,
+                  whiteSpace: "nowrap",
+                  marginLeft: 12,
                 }}>- {formatDetailed(result.totalDeductions)}</span>
               </div>
             </div>
